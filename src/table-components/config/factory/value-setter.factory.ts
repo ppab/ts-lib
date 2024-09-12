@@ -9,11 +9,11 @@ export class ValueSetterFactory extends Factory<ValueSetters> {
         url?: string;
         actionDispatcher?: string
         queryParam?: string
-    }={}) {
+    } = {}) {
         const defaultProps = {
             "url": "urls.mutateUrl",
             "actionDispatcher": "actions.updateAction",
-            "queryParam": ""
+            "queryParam": "urls.mutateQueryParams"
         }
         return this.params({
             valueSetter: ["reduxValueSetter2", {

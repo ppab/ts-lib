@@ -110,6 +110,8 @@ type CellRendererBasicField = {
         values: string[]
     }
     cellEditorPopup?: boolean
+    comment?: string
+    cellRenderer?: string
 };
 
 
@@ -136,6 +138,7 @@ export class ColDefFieldFactory extends Factory<CellRendererBasicField> {
               cellEditor,
               cellEditorParams,
               cellEditorPopup,
+              cellRenderer
           }: {
         field: string,
         editable?: boolean
@@ -145,6 +148,7 @@ export class ColDefFieldFactory extends Factory<CellRendererBasicField> {
             values: string[]
         },
         cellEditorPopup?: boolean
+        cellRenderer?: string
     }) {
 
         if (editable) {
@@ -155,6 +159,7 @@ export class ColDefFieldFactory extends Factory<CellRendererBasicField> {
                 cellEditor,
                 cellEditorParams,
                 cellEditorPopup,
+                cellRenderer
             });
         }
 
