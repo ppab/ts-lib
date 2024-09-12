@@ -9,6 +9,20 @@ describe('cellRendererComponentFactory', () => {
                 colDefComponentComponentFactory
                     .LinkButton({
                         headerName: "test",
+                        props: {parts: ["test"], append: false}
+                    })
+                    .build(),
+            ];
+
+            expect(base).toEqual(factory);
+        });
+        it('should be able to recreate the base object with parts ', () => {
+
+            const [base, factory] = [
+                {"headerName": "test", "cellRenderer": ["LinkButton", {}]},
+                colDefComponentComponentFactory
+                    .LinkButton({
+                        headerName: "test",
                     })
                     .build(),
             ];

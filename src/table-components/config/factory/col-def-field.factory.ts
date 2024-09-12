@@ -166,7 +166,9 @@ export class ColDefFieldFactory extends Factory<CellRendererBasicField> {
         return this.params({
             field,
             editable: false,
-            valueSetter: undefined
+            valueSetter,
+            cellEditorPopup,
+            cellRenderer
         });
     }
 

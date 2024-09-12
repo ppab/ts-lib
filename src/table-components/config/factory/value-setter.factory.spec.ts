@@ -9,7 +9,7 @@ describe('ValueSetterFactory', () => {
                         "valueSetter": ["reduxValueSetter2", {
                             "url": "urls.mutateUrl",
                             "actionDispatcher": "actions.updateAction",
-                            "queryParam": ""
+                           "queryParam": "urls.mutateQueryParams"
                         }]
                     },
                     valueSetterFactory
@@ -27,7 +27,7 @@ describe('ValueSetterFactory', () => {
                         "valueSetter": ["reduxValueSetter2", {
                             "url": "test",
                             "actionDispatcher": "actions.updateAction",
-                            "queryParam": ""
+                           "queryParam": "urls.mutateQueryParams"
                         }]
                     },
                     valueSetterFactory
@@ -47,7 +47,7 @@ describe('ValueSetterFactory', () => {
                         "valueSetter": ["reduxValueSetter2", {
                             "url": "urls.mutateUrl",
                             "actionDispatcher": "test",
-                            "queryParam": ""
+                           "queryParam": "urls.mutateQueryParams"
                         }]
                     },
                     valueSetterFactory

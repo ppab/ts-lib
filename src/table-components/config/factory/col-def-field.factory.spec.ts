@@ -17,6 +17,24 @@ describe('colDefFactory', () => {
 
             expect(base).toEqual(factory);
         });
+        it('should be able to recreate the base object when no params are provided ', () => {
+            const [base, factory] = [
+                {
+                    "field": "MyField",
+                    "editable": false,
+                    "cellRenderer": "test",
+                    "valueSetter": undefined
+                },
+                colDefFactory
+                    .Field({
+                        field: "MyField",
+                        cellRenderer: "test"
+                    })
+                    .build(),
+            ];
+
+            expect(base).toEqual(factory);
+        });
         it('should be able to recreate the base object with "editable"  ', () => {
             const [base, factory] = [
                 {
@@ -25,7 +43,7 @@ describe('colDefFactory', () => {
                     "valueSetter": ["reduxValueSetter2", {
                         "url": "urls.mutateUrl",
                         "actionDispatcher": "actions.updateAction",
-                        "queryParam": ""
+                         "queryParam": "urls.mutateQueryParams"
                     }],
                 },
                 colDefFactory
@@ -80,7 +98,7 @@ describe('colDefFactory', () => {
                     "valueSetter": ["reduxValueSetter2", {
                         "url": "urls.mutateUrl",
                         "actionDispatcher": "actions.updateAction",
-                        "queryParam": ""
+                         "queryParam": "urls.mutateQueryParams"
                     }],
                     "cellEditor": "agSelectCellEditor",
                     "cellEditorParams": {"values": ["Test1", "Test2"]},
