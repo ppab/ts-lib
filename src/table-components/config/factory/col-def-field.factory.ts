@@ -1,15 +1,9 @@
 import {Factory} from 'fishery';
 import {ColDef} from "ag-grid-community"
 import {RequireOnly} from "../../../types/types";
-import {
-    CellRendererComponents,
-    ComponentName,
-    ComponentProps,
-    DeleteButtonProps,
-    LinkButtonProps
-} from "../../cell-renderers/types";
 import {ValueSetter, ValueSetters} from "../../value-setters/types";
 import {valueSetterFactory} from "./value-setter.factory";
+import {TransformerConfig} from "../../../utils";
 
 enum testEnum {
     test = 'test'
@@ -107,7 +101,8 @@ type CellRendererBasicField = {
     valueSetter: ValueSetters["valueSetter"] | undefined
     cellEditor?: string
     cellEditorParams?: {
-        values: string[]
+        values?: string[]
+        transformerConfig?: TransformerConfig
     }
     cellEditorPopup?: boolean
     comment?: string
@@ -138,17 +133,20 @@ export class ColDefFieldFactory extends Factory<CellRendererBasicField> {
               cellEditor,
               cellEditorParams,
               cellEditorPopup,
-              cellRenderer
+              cellRenderer,
+              comment
           }: {
         field: string,
         editable?: boolean
         valueSetter?: ValueSetters["valueSetter"]
         cellEditor?: string
         cellEditorParams?: {
-            values: string[]
+            values?: string[]
+            transformerConfig?: TransformerConfig
         },
         cellEditorPopup?: boolean
         cellRenderer?: string
+        comment?: string
     }) {
 
         if (editable) {
@@ -159,7 +157,8 @@ export class ColDefFieldFactory extends Factory<CellRendererBasicField> {
                 cellEditor,
                 cellEditorParams,
                 cellEditorPopup,
-                cellRenderer
+                cellRenderer,
+                comment
             });
         }
 
@@ -168,7 +167,8 @@ export class ColDefFieldFactory extends Factory<CellRendererBasicField> {
             editable: false,
             valueSetter,
             cellEditorPopup,
-            cellRenderer
+            cellRenderer,
+            comment
         });
     }
 
